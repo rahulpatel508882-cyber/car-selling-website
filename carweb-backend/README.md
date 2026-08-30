@@ -1,24 +1,24 @@
-﻿# portfolio
+﻿# carweb-backend
 
-A personal portfolio website for showcasing projects, experience, and contact details with a modern frontend and email-capable backend.
+Backend API for the car website with database models, authentication, and route handlers for user and vehicle operations.
 
 ## Tech Stack
 
-- React, Vite, Tailwind CSS, Express, Node.js
+- Node.js, Express, MongoDB, JWT
 
 ## Features
 
-- Portfolio homepage
-- Project showcase
-- About and experience sections
-- Contact form
-- Backend email sending
+- RESTful APIs
+- Authentication
+- MongoDB models
+- Protected routes
+- User management
 
 ## Getting Started
 
 1. Open a terminal in the project folder.
 2. Install dependencies:
-   cd portfolio
+   cd carweb-backend
    npm install
 3. Start the app:
    npm run dev
@@ -27,7 +27,7 @@ A personal portfolio website for showcasing projects, experience, and contact de
 
 Open the app in your browser:
 
-- http://localhost:5173
+- http://localhost:5000
 
 ## Environment Variables
 

@@ -4,10 +4,51 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-     font-family: "Inter", sans-serif;
+:root {
+  --primary: #f97316;
+  --secondary: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f5f5f5;
+  color: #111827;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .slick-slide > div {
-      margin: 0 10px;
+  margin: 0 10px;
+}
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

@@ -1,36 +1,44 @@
-# Weather MERN App
+﻿# weather-mern-app
 
-A full-stack weather application built with MongoDB, Express, React, and Node.js.
+A full-stack weather dashboard built with MongoDB, Express, React, and Node.js. It allows users to search weather by city and keep a record of recent queries.
+
+## Tech Stack
+
+- React, Express, MongoDB, Node.js
 
 ## Features
-- Search weather by city
-- Show current conditions and 7-day forecast
-- Store recent searches in MongoDB
-- Responsive weather dashboard UI
-- Automatic MongoDB fallback to an in-memory database in development
 
-## Local setup
+- City weather search
+- Current conditions
+- 7-day forecast
+- Recent search history
+- Modern responsive UI
 
-1. Install dependencies:
+## Getting Started
+
+1. Open a terminal in the project folder.
+2. Install dependencies:
+   cd weather-mern-app
    npm install
-   npm install --prefix server
-   npm install --prefix client
-
-2. Run the app:
+3. Start the app:
    npm run dev
 
-3. Open:
-   - Frontend: http://localhost:5173
-   - API: http://localhost:5000/api/health
+## Run the Application
 
-## Production build
+Open the app in your browser:
 
-npm run build
-npm start
+- http://localhost:5173
 
-## Environment
+## Environment Variables
 
-Create a server `.env` file if you want to use a real MongoDB instance:
+Create a .env file in the project root if needed with values like:
 
-MONGO_URI=mongodb://127.0.0.1:27017/weatherapp
 PORT=5000
+MONGO_URI=mongodb://localhost:27017/your-db-name
+JWT_SECRET=your-secret-key
+
+## Notes
+
+- Keep secrets and credentials in .env.
+- Use separate branches for features and fixes.
+- This folder is an independent Git repository.

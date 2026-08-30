@@ -1,12 +1,44 @@
-# React + Vite
+﻿# car-web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium car selling and browsing website featuring listings, modern landing pages, and a sleek UI designed for vehicle discovery.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React, Vite, Tailwind CSS
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Car listing page
+- Modern catalog UI
+- Responsive design
+- Search-friendly layout
+- Dealership style frontend
+
+## Getting Started
+
+1. Open a terminal in the project folder.
+2. Install dependencies:
+   cd car-web
+   npm install
+3. Start the app:
+   npm run dev
+
+## Run the Application
+
+Open the app in your browser:
+
+- http://localhost:5173
+
+## Environment Variables
+
+Create a .env file in the project root if needed with values like:
+
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/your-db-name
+JWT_SECRET=your-secret-key
+
+## Notes
+
+- Keep secrets and credentials in .env.
+- Use separate branches for features and fixes.
+- This folder is an independent Git repository.

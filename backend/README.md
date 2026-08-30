@@ -1,24 +1,24 @@
-﻿# portfolio
+﻿# backend
 
-A personal portfolio website for showcasing projects, experience, and contact details with a modern frontend and email-capable backend.
+A reusable Node.js backend template with Express APIs, MongoDB integration, middleware, and file upload support for MERN apps.
 
 ## Tech Stack
 
-- React, Vite, Tailwind CSS, Express, Node.js
+- Node.js, Express, MongoDB, JWT
 
 ## Features
 
-- Portfolio homepage
-- Project showcase
-- About and experience sections
-- Contact form
-- Backend email sending
+- Express server
+- API routing
+- MongoDB integration
+- Authentication helpers
+- File upload capability
 
 ## Getting Started
 
 1. Open a terminal in the project folder.
 2. Install dependencies:
-   cd portfolio
+   cd backend
    npm install
 3. Start the app:
    npm run dev
@@ -27,7 +27,7 @@ A personal portfolio website for showcasing projects, experience, and contact de
 
 Open the app in your browser:
 
-- http://localhost:5173
+- http://localhost:5000
 
 ## Environment Variables
 

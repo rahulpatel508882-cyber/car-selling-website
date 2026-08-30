@@ -1,106 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import FeaturedCard from "./FeaturedCard";
+import { apiBaseUrl, fallbackCars } from "../../../../data/carData";
 
 const Featured = () => {
-    const carsData = [
-  {
-    id: 0,
-    img: "/src/assets/img/car0.jpg",
-    name: "BMW 7 Series",
-    price: "55000",
-  },
-  {
-    id: 1,
-    img: "/src/assets/img/car2.jpg",
-    name: "Mercdes benz",
-    price: "45000",
-  },
-  {
-    id: 2,
-    img: "/src/assets/img/car3.jpg",
-   name: "Nissan GT-R",
-    price: "42000",
-  },
-  {
-    id: 3,
-    img: "/src/assets/img/car4.jpg",
-    name: "Ferrari",
-    price: "52000",
-  },
-  {
-    id: 4,
-    img: "/src/assets/img/car5.jpg",
-    name: "Bently",
-    price: "54000",
-  },
-  {
-    id: 5,
-    img: "/src/assets/img/car6.jpg",
-    name: "Land Rover",
-    price: "56000",
-  },
-];
-  const settings = {
-    dots: false,
-    infinie: true,
-    slidesToShow: 3,
-    SlidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    arrows: false,
-    responsive: [
-        {
-            breakpoint: 1023,
-            settings: {
-                slidesToShowcar5: 3,
-                SlidesToScroll: 3,
-                infinie: true,
-                dots: true
-            },
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                SlidesToScroll: 2,
-                initialSlide: 2
-            },
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                SlidesToScroll: 1,
-                initialSlide: 2
-            },
-        },
-    ],
-  };
-  return (
-    <div className="container mt-14">
-      <h1 className="font-bold text-4xl text-center">
-        Featured<span className="text-primary"> Cars</span>
-      </h1>
+  const [carsData, setCarsData] = useState(fallbackCars);
 
-      <p className="text-center text-xl" > This is the Featured Cars of your dream life for the earth !</p>
-      <div>
-        <Slider {...settings}>
-            {carsData.map((item)=> (
-                <FeaturedCard
-                key={item.id}
-                img={item.img}
-                name={item.name}
-                price={item.price}
-                /> 
-                ))}
-        </Slider>
-      </div>
-    </div>
+  useEffect(() => {
+   const loadCars = async () => {
+     try {
+       const response = await fetch(`${apiBaseUrl}/api/featured-cars`);
+       if (!response.ok) {
+         throw new Error('Failed to load featured cars');
+       }
+       const data = await response.json();
+       if (Array.isArray(data) && data.length > 0) {
+         setCarsData(data.map((item) => ({ ...item, img: item.image || item.img })));
+       }
+     } catch (error) {
+       setCarsData(fallbackCars);
+     }
+   };
+
+   loadCars();
+  }, []);
+
+  const settings = {
+   dots: false,
+   infinite: true,
+   slidesToShow: 3,
+   slidesToScroll: 1,
+   autoplay: true,
+   speed: 2000,
+   autoplaySpeed: 2000,
+   cssEase: "linear",
+   arrows: false,
+   responsive: [
+     {
+       breakpoint: 1023,
+       settings: {
+         slidesToShow: 3,
+         slidesToScroll: 3,
+         infinite: true,
+         dots: true,
+       },
+     },
+     {
+       breakpoint: 768,
+       settings: {
+         slidesToShow: 2,
+         slidesToScroll: 2,
+         initialSlide: 2,
+       },
+     },
+     {
+       breakpoint: 480,
+       settings: {
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         initialSlide: 2,
+       },
+     },
+   ],
+  };
+
+  return (
+   <div className="container mt-14">
+     <h1 className="font-bold text-4xl text-center">
+       Featured<span className="text-primary"> Cars</span>
+     </h1>
+
+     <p className="text-center text-xl">This is the Featured Cars of your dream life for the earth!</p>
+     <div>
+       <Slider {...settings}>
+         {carsData.map((item) => (
+           <FeaturedCard
+             key={item.id}
+             img={item.img || item.image}
+             name={item.name}
+             price={item.price}
+           />
+         ))}
+       </Slider>
+     </div>
+   </div>
   );
 };
 
